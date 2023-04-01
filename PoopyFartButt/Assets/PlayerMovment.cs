@@ -36,9 +36,7 @@ public class PlayerMovment : MonoBehaviour
         // Keyboard movement
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
         Vector3 movement = new Vector3(horizontal, 0, vertical).normalized;
-
         rb.MovePosition(rb.position + transform.TransformDirection(movement) * movementSpeed * Time.deltaTime);
 
         // Jumping
@@ -47,7 +45,7 @@ public class PlayerMovment : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         }
         // Sprinting
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             movementSpeed = movementSpeed + 10;
         }
