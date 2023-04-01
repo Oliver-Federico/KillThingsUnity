@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class PlayerMovment : MonoBehaviour
@@ -44,6 +45,15 @@ public class PlayerMovment : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+        }
+        // Sprinting
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            movementSpeed = movementSpeed + 10;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            movementSpeed = movementSpeed - 10;
         }
     }
 
